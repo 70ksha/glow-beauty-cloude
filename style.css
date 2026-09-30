@@ -1,0 +1,299 @@
+/* =========================================================
+   هانسكين — ملف التنسيق
+   الألوان والخطوط في الأعلى، عدّليها من هنا بسهولة
+   ========================================================= */
+
+:root {
+  --white: #ffffff;
+  --cream: #f7f1e8;
+  --blush: #fbedea;
+  --rose: #b5646f;        /* اللون الوردي الغامق للتفاصيل */
+  --rose-dark: #96505a;
+  --ink: #3a2b2e;         /* لون النص */
+  --muted: #7d6b6e;
+  --line: #eadfd6;
+  --whatsapp: #1e9e57;
+  --whatsapp-dark: #177d45;
+
+  --font-heading: "Noto Kufi Arabic", "Segoe UI", Tahoma, sans-serif;
+  --font-body: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+
+  --radius: 24px;
+  --shadow: 0 10px 30px rgba(120, 80, 70, 0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--ink);
+  background: var(--white);
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+ul { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, p { margin: 0; }
+
+.container {
+  width: min(1120px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+
+/* ---------- الشريط العلوي ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 68px;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0;
+}
+.logo span { color: var(--rose); }
+
+.site-header ul { display: flex; gap: 2rem; }
+.site-header nav a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.98rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.site-header nav a:hover { color: var(--rose); }
+
+/* ---------- الواجهة الرئيسية ---------- */
+.hero {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+  padding: 4rem 0 5rem;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: var(--muted);
+  max-width: 28em;
+}
+
+/* إطار على شكل قوس، مستوحى من التصميم الكوري البسيط */
+.hero-visual {
+  border-radius: 999px 999px var(--radius) var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  max-width: 440px;
+  width: 100%;
+  margin-inline: auto;
+  aspect-ratio: 700 / 850;
+  background: var(--blush);
+}
+.hero-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- الأقسام ---------- */
+.section { padding: 5rem 0; }
+
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- المنتجات ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.75rem;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.product img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+
+.product-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem 1.4rem 1.5rem;
+}
+
+.product h3 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+}
+
+.product-body > p:not(.price) {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.price {
+  margin-top: auto;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--rose);
+}
+
+.btn-whatsapp {
+  display: block;
+  text-align: center;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: var(--whatsapp);
+  color: var(--white);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-whatsapp:hover { background: var(--whatsapp-dark); }
+
+/* ---------- العناية الكورية ---------- */
+.kbeauty { background: var(--blush); }
+
+.kbeauty-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.kbeauty .section-title { margin-bottom: 1.25rem; }
+.lead { font-size: 1.12rem; color: var(--ink); max-width: 30em; }
+
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.pillars li {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.25rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.pillars strong {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--rose);
+  font-size: 1.1rem;
+}
+.pillars span { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+/* ---------- تواصل معنا ---------- */
+.contact-list { border-top: 1px solid var(--line); max-width: 640px; }
+.contact-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-list span { color: var(--muted); }
+.contact-list a { font-weight: 400; text-decoration: none; color: var(--rose); }
+.contact-list a:hover { color: var(--rose-dark); text-decoration: underline; }
+
+/* ---------- الفوتر ---------- */
+.site-footer {
+  background: var(--cream);
+  padding: 3rem 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--ink);
+}
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { text-decoration: none; }
+.footer-links a:hover { color: var(--rose); }
+.copyright {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+}
+
+/* ---------- الأجهزة اللوحية والجوال ---------- */
+@media (max-width: 860px) {
+  .hero { padding: 2.5rem 0 3.5rem; }
+  .hero-inner, .kbeauty-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-visual { max-width: 340px; }
+  .section { padding: 3.5rem 0; }
+}
+
+@media (max-width: 520px) {
+  .site-header ul { gap: 1rem; }
+  .site-header nav a { font-size: 0.85rem; }
+  .logo { font-size: 1.25rem; }
+  .product-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .product-body { padding: 1rem 0.9rem 1.1rem; }
+  .product h3 { font-size: 1rem; }
+  .product-body > p:not(.price) { font-size: 0.82rem; }
+  .btn-whatsapp { font-size: 0.85rem; padding: 0.6rem 0.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
